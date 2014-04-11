@@ -45,7 +45,7 @@ else
   let s:lineheight = 0
 endif
 
-" line height
+" sort order
 if exists("g:SimplenoteSortOrder")
   let s:sortorder = g:SimplenoteSortOrder
 else
