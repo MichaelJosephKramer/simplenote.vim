@@ -52,6 +52,13 @@ else
   let s:sortorder = "pinned, modifydate"
 endif
 
+" quit on open
+if exists("g:SimplenoteQuitOnOpen")
+  let s:quitonopen = g:SimplenoteQuitOnOpen
+else
+  let s:quitonopen = 0
+endif
+
 if (s:user == "") || (s:password == "")
   let errmsg = "Simplenote credentials missing. Set g:SimplenoteUsername and "
   let errmsg = errmsg . "g:SimplenotePassword. If you don't have an account you can "
@@ -271,6 +278,9 @@ class SimplenoteVimInterface(object):
             if ("markdown" in note["systemtags"]):
                 vim.command("setlocal filetype=markdown")
         vim.command("setlocal nomodified")
+
+        if vim.eval("g:simplenote_scratch_buffer"):
+            vim.command("bwipeout Simplenote")
 
     def update_note_from_current_buffer(self):
         """ updates the currently displayed note to the web service or creates new"""

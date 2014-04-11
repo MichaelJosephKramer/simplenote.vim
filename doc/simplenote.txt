@@ -103,6 +103,12 @@ If you are behind a proxy set these to the correct values. >
     let $HTTPS_PROXY = 'http://<user>:<password>@<proxyurl>:<proxyport>'
 <
 
+                                                   *'simplenote_quit_on_open'*
+Default: 0
+If set, the list will close when a note is selected. >
+    g:SimplenoteQuitOnOpen=1
+<
+
 ==============================================================================
 4. Bugs                                                      *simplenote-bugs*
 
